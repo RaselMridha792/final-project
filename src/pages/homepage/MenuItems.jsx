@@ -25,6 +25,11 @@ const MenuItems = () => {
             <MenuCard key={items._id} items={items}></MenuCard>
           ))}
         </div>
+        <div className="flex items-center justify-center mt-5">
+          <button className="bg-white text-black border btn border-b-4 border-black rounded-xl">
+            VIEW FULL MENU
+          </button>
+        </div>
       </div>
     </>
   );

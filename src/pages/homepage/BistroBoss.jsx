@@ -4,13 +4,9 @@ const BistroBoss = () => {
   return (
     <>
       <div
-        className="my-40 py-20"
+        className="my-40 py-20 bg-no-repeat bg-fixed bg-cover bg-center"
         style={{
           backgroundImage: `url(${cheifService})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: 'cover',
-          backgroundAttachment: 'fixed',
-          backgroundPosition: 'center'
         }}
       >
         <div className="lg:w-2/3 md:w-3/4 mx-auto text-center bg-white md:py-20 py-10 shadow-lg">
