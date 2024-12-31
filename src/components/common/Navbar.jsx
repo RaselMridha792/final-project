@@ -4,8 +4,8 @@ const Navbar = () => {
   const navlinks = (
     <>
       <div className="gap-5 flex text-lg">
-        <NavLink to="/home">home</NavLink>
-        <NavLink to="/About">About</NavLink>
+        <NavLink to="/">home</NavLink>
+        <NavLink to="/menu">Menu</NavLink>
         <NavLink to="/Items">Items</NavLink>
         <NavLink to="/Foods">Foods</NavLink>
       </div>

@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react";
 import SharedTitle from "../../components/common/SharedTitle";
-import MenuCard from "../../components/common/MenuCard";
+import { useMenu } from "../../components/common/useMenu";
+import SharedMenuCards from "../../components/common/SharedMenuCards";
 
 const MenuItems = () => {
-  const [menu, setMenu] = useState([]);
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const popularItems = data.filter((item) => item.category === "popular");
-        setMenu(popularItems);
-      });
-  }, []);
-  console.log(menu);
+  const [menuitems] = useMenu();
+  console.log(menuitems);
+    const menu = menuitems.filter((item) => item.category === "popular");
+
+
   return (
     <>
       <div className="my-20">
@@ -20,11 +15,7 @@ const MenuItems = () => {
           heading={"check it out"}
           subHeading={"From Our menu"}
         ></SharedTitle>
-        <div className="grid md:grid-cols-2 gap-5">
-          {menu?.map((items) => (
-            <MenuCard key={items._id} items={items}></MenuCard>
-          ))}
-        </div>
+        <SharedMenuCards menu={menu}></SharedMenuCards>
         <div className="flex items-center justify-center mt-5">
           <button className="bg-white text-black border btn border-b-4 border-black rounded-xl">
             VIEW FULL MENU

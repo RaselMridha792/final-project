@@ -16,13 +16,10 @@ const Homepage = () => {
           <Category></Category>
           <BistroBoss></BistroBoss>
         <MenuItems></MenuItems>
-
-
         {/* call us section  */}
         <div className="my-20 bg-gray-900 md:py-20 py-10 text-center">
           <h1 className="font-Cinzel md:text-4xl text-2xl text-white">Call Us: +8801645072790</h1>
         </div>
-
         {/* cheif recommendation  */}
         <ChefRecommendation></ChefRecommendation>
         <SpecialMenu></SpecialMenu>
