@@ -30,11 +30,6 @@ const Menu = () => {
               subHeading={"todays offer"}
             ></SharedTitle>
             <SharedMenuCards menu={menu}></SharedMenuCards>
-            <div className="flex items-center justify-center mt-5">
-              <button className="bg-white text-black border btn border-b-4 border-black rounded-xl">
-                ORDER YOUR FAVORITE FOODS
-              </button>
-            </div>
           </div>
         </section>
         <SharedMenuCover
@@ -51,11 +46,6 @@ const Menu = () => {
               subHeading={"todays offer"}
             ></SharedTitle>
             <SharedMenuCards menu={desert}></SharedMenuCards>
-            <div className="flex items-center justify-center mt-5">
-              <button className="bg-white text-black border btn border-b-4 border-black rounded-xl">
-                ORDER YOUR FAVORITE FOODS
-              </button>
-            </div>
           </div>
         </section>
         <SharedMenuCover
@@ -72,11 +62,6 @@ const Menu = () => {
               subHeading={"todays offer"}
             ></SharedTitle>
             <SharedMenuCards menu={pizza}></SharedMenuCards>
-            <div className="flex items-center justify-center mt-5">
-              <button className="bg-white text-black border btn border-b-4 border-black rounded-xl">
-                ORDER YOUR FAVORITE FOODS
-              </button>
-            </div>
           </div>
         </section>
         <SharedMenuCover
@@ -93,11 +78,6 @@ const Menu = () => {
               subHeading={"todays offer"}
             ></SharedTitle>
             <SharedMenuCards menu={salads}></SharedMenuCards>
-            <div className="flex items-center justify-center mt-5">
-              <button className="bg-white text-black border btn border-b-4 border-black rounded-xl">
-                ORDER YOUR FAVORITE FOODS
-              </button>
-            </div>
           </div>
         </section>
         <SharedMenuCover
@@ -114,11 +94,6 @@ const Menu = () => {
               subHeading={"todays offer"}
             ></SharedTitle>
             <SharedMenuCards menu={soups}></SharedMenuCards>
-            <div className="flex items-center justify-center mt-5">
-              <button className="bg-white text-black border btn border-b-4 border-black rounded-xl">
-                ORDER YOUR FAVORITE FOODS
-              </button>
-            </div>
           </div>
         </section>
       </section>

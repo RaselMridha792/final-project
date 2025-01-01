@@ -10,13 +10,14 @@ import { Rating } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
 import { FaQuoteLeft } from "react-icons/fa";
+import axios from "axios";
 
 const Testimonial = () => {
   const [reviews, setReview] = useState([]);
   useEffect(() => {
-    fetch("review.json")
-      .then((res) => res.json())
-      .then((data) => setReview(data));
+    axios
+      .get("http://localhost:5000/review")
+      .then((res) => setReview(res.data));
   }, []);
   return (
     <div className="my-20">
@@ -35,7 +36,9 @@ const Testimonial = () => {
                     value={review.rating}
                     readOnly
                   />
-                  <p className="text-6xl py-5"><FaQuoteLeft /></p>
+                  <p className="text-6xl py-5">
+                    <FaQuoteLeft />
+                  </p>
                 </div>
                 <p>{review.details}</p>
                 <h1 className="text-center text-4xl text-yellow-600">
