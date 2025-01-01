@@ -6,8 +6,9 @@ const Navbar = () => {
       <div className="gap-5 flex text-lg">
         <NavLink to="/">home</NavLink>
         <NavLink to="/menu">Menu</NavLink>
-        <NavLink to="/Items">Items</NavLink>
-        <NavLink to="/Foods">Foods</NavLink>
+        <NavLink to="/our-shop">Our Shop</NavLink>
+        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/sign-up">Sign Up</NavLink>
       </div>
     </>
   );
@@ -44,7 +45,7 @@ const Navbar = () => {
                 {navlinks}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">daisyUI</a>
+            <a className="btn btn-ghost text-xl">BISTRO BOSS</a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navlinks}</ul>
