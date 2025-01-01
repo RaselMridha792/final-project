@@ -4,9 +4,7 @@ import SharedMenuCards from "../../components/common/SharedMenuCards";
 
 const MenuItems = () => {
   const [menuitems] = useMenu();
-  console.log(menuitems);
     const menu = menuitems.filter((item) => item.category === "popular");
-
 
   return (
     <>

@@ -3,12 +3,13 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const navlinks = (
     <>
-      <div className="gap-5 flex text-lg">
+      <div className="gap-5 flex text-lg flex-col lg:flex-row text-black lg:text-white">
         <NavLink to="/">home</NavLink>
         <NavLink to="/menu">Menu</NavLink>
         <NavLink to="/our-shop">Our Shop</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/sign-up">Sign Up</NavLink>
+        <NavLink to="/contact-us">Contact Us</NavLink>
       </div>
     </>
   );
