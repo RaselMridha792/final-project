@@ -7,6 +7,8 @@ import OurShop from "../pages/our shop/OurShop";
 import SignUp from "../pages/Authentication/SignUp";
 import Login from "../pages/Authentication/Login";
 import ContactUs from "../pages/contact us/ContactUs";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import PrivetRoutes from "../routes/PrivetRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -19,25 +21,33 @@ export const router = createBrowserRouter([
         element: <Homepage></Homepage>,
       },
       {
-        path: '/menu',
-        element: <Menu></Menu>
+        path: "/menu",
+        element: <Menu></Menu>,
       },
       {
-        path: '/our-shop',
-        element:<OurShop></OurShop>
+        path: "/our-shop",
+        element: <OurShop></OurShop>,
       },
       {
-        path: '/sign-up',
-        element: <SignUp></SignUp>
+        path: "/sign-up",
+        element: <SignUp></SignUp>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/contact-us',
-        element: <ContactUs></ContactUs>
-      }
+        path: "/contact-us",
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivetRoutes>
+            <Dashboard></Dashboard>
+          </PrivetRoutes>
+        ),
+      },
     ],
   },
 ]);
