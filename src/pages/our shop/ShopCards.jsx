@@ -19,9 +19,10 @@ const ShopCards = ({ menues }) => {
       const itemId = item._id
       const name = item.name
       const price = item.price
+      const image = item.image
 
       const cartItem = {
-        userEmail, itemId, name, price
+        userEmail, itemId, name, price, image
       }
 
       axiosSecure.post('/carts', cartItem)
@@ -60,12 +61,13 @@ const ShopCards = ({ menues }) => {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {menues.map((menu) => (
           <div key={menu._id} className="card rounded-none bg-stone-100 border">
-            <figure className="">
+            <figure className="relative">
               <img
                 src={menu.image}
                 alt="items"
                 className="w-full h-56 object-cover"
               />
+              <p className="absolute top-2 right-2 bg-black text-white p-1">${menu.price}</p>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">{menu.name}</h2>

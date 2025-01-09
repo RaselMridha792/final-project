@@ -18,16 +18,16 @@ const Dashboard = () => {
             <ul className="flex flex-col gap-4 font-Cinzel font-bold">
               <li>
                 <NavLink
-                  to="cart"
+                  to="admin-home"
                   className="flex  items-center gap-2 text-xl"
                 >
                   <FaHome />
-                  Admin Home
+                  User Home
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="cart"
+                  to="/our-shop"
                   className="flex  items-center gap-2 text-xl"
                 >
                   <PiForkKnifeThin />
@@ -36,7 +36,7 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink
-                  to="cart"
+                  to="manage-items"
                   className="flex  items-center gap-2 text-xl"
                 >
                   <TiThMenu />
@@ -44,19 +44,13 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="cart"
-                  className="flex  items-center gap-2 text-xl"
-                >
+                <NavLink to="cart" className="flex  items-center gap-2 text-xl">
                   <FaBook />
                   Manage Booking
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="cart"
-                  className="flex  items-center gap-2 text-xl"
-                >
+                <NavLink to="cart" className="flex  items-center gap-2 text-xl">
                   <FaUsers />
                   All Users
                 </NavLink>
@@ -65,35 +59,26 @@ const Dashboard = () => {
             <hr className="my-5" />
             <ul className="flex flex-col gap-4 font-Cinzel font-bold">
               <li>
-                <NavLink
-                  to="cart"
-                  className="flex  items-center gap-2 text-xl"
-                >
+                <NavLink to="/" className="flex  items-center gap-2 text-xl">
                   <FaHome />
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="cart"
-                  className="flex  items-center gap-2 text-xl"
-                >
+                <NavLink to="menu" className="flex  items-center gap-2 text-xl">
                   <TiThMenu />
                   Menu
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="cart"
-                  className="flex  items-center gap-2 text-xl"
-                >
+                <NavLink to="cart" className="flex  items-center gap-2 text-xl">
                   <FaShoppingCart />
-                  Shop
+                  My Cart
                 </NavLink>
               </li>
               <li>
                 <NavLink
-                  to="cart"
+                  to="manage-booking"
                   className="flex  items-center gap-2 text-xl"
                 >
                   <MdEmail />
@@ -103,7 +88,7 @@ const Dashboard = () => {
             </ul>
           </nav>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 max-w-screen-xl mx-auto">
           <Outlet></Outlet>
         </div>
       </section>
