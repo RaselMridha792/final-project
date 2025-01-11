@@ -7,7 +7,7 @@ import OurShop from "../pages/our shop/OurShop";
 import SignUp from "../pages/Authentication/SignUp";
 import Login from "../pages/Authentication/Login";
 import ContactUs from "../pages/contact us/ContactUs";
-// import PrivetRoutes from "../routes/PrivetRoutes";
+import PrivetRoutes from "../routes/PrivetRoutes";
 import Dashboard from "../components/layouts/Dashboard/Dashboard";
 import MyCart from "../components/layouts/Dashboard/MyCart";
 
@@ -44,13 +44,17 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    path: "dashboard",
+    element: (
+      <PrivetRoutes>
+        <Dashboard></Dashboard>
+      </PrivetRoutes>
+    ),
     children: [
       {
-        path: 'cart',
-        element: <MyCart></MyCart>
-      }
-    ]
-  }
+        path: "cart",
+        element: <MyCart></MyCart>,
+      },
+    ],
+  },
 ]);

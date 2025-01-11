@@ -9,33 +9,52 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
   const [disabled, setDisabled] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-  const { SignUpWithEmail, updateUserProfile } = useContext(userContext);
+  const { SignUpWithEmail, updateUserProfile, handleGoogleLogin } =
+    useContext(userContext);
+  const axiosPublic = useAxiosPublic()
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     SignUpWithEmail(data.email, data.password)
       .then((result) => {
+        console.log(result.data)
         updateUserProfile(data.name, data.photo)
           .then(() => {
-            console.log("profile created successful");
+            const userInfo = { name: data.name, email: data.email };
+            axiosPublic.post("/users", userInfo).then((res) => {
+              reset();
+              if (res.data.insertedId) {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User Created successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
           })
           .catch((error) => {
             console.log(error.message);
           });
-        navigate("/");
       })
       .catch((error) => {
         console.log(error.message);
+        setErrorMessage(error.message);
       });
   };
 
@@ -54,6 +73,31 @@ const SignUp = () => {
       setDisabled(true);
       setErrorMessage("invalid captcha");
     }
+  };
+
+  const handleSignUpGoogle = () => {
+    handleGoogleLogin()
+      .then((result) => {
+          const userInfo = {
+            email: result.user?.email,
+            name: result.user?.displayName,
+          };
+          axiosPublic.post("/users", userInfo).then((res) => {
+            console.log('user created successfully status: ', res.status)
+          });
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User Created successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+        }
+      )
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
   return (
     <>
@@ -167,6 +211,22 @@ const SignUp = () => {
                   <p className="text-yellow-600">
                     Already Register?<Link to="/login"> please Login</Link>
                   </p>
+                </div>
+                <div className="divider">OR</div>
+                <p className="text-center">Register With</p>
+                <div className="flex gap-10 items-center justify-center mt-3 text-2xl">
+                  <div
+                    onClick={handleSignUpGoogle}
+                    className="rounded-full border-2 border-black hover:text-yellow-600 hover:border-yellow-600 duration-200 p-2"
+                  >
+                    <FaGoogle></FaGoogle>
+                  </div>
+                  <div className="rounded-full border-2 border-black hover:text-yellow-600 hover:border-yellow-600 duration-200 p-2">
+                    <FaFacebook></FaFacebook>
+                  </div>
+                  <div className="rounded-full border-2 border-black hover:text-yellow-600 hover:border-yellow-600 duration-200 p-2">
+                    <FaGithub></FaGithub>
+                  </div>
                 </div>
               </form>
             </div>
