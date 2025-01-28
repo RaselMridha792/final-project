@@ -1,7 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginBg from "../../assets/others/authentication.png";
 import LoginBg1 from "../../assets/others/authentication2.png";
-import Swal from "sweetalert2";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -62,13 +61,6 @@ const Login = () => {
           };
           axiosPublic.post("/users", userInfo).then((res) => {
             console.log('user created successfully status: ', res.status)
-          });
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User Created successfully",
-            showConfirmButton: false,
-            timer: 1500,
           });
           navigate("/");
         }
